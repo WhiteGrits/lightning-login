@@ -1,0 +1,11 @@
+name: Lightninglogin
+version: 1.0.0
+description: "lightningstrike on login plugin."
+Author: "WhiteGrits"
+
+main: me.WhiteGrits.Lightninglogin.Main
+database: false
+
+permissions:
+   lightninglogin.allow:
+     description: allows lightning on login
