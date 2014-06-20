@@ -6,6 +6,15 @@ Author: "WhiteGrits"
 main: me.WhiteGrits.Lightninglogin.Main
 database: false
 
+commands:
+  lightninglogin:
+     description: This is the base command for lightninglogin.
+     permission: lightninglogin.allowhelp
+      
 permissions:
-   lightninglogin.allow:
-     description: allows lightning on login
+   lightninglogin.*:
+       description: Gives access to all lightninglogin commands
+       children:
+           lightninglogin.allow: true
+           lightninglogin.allowtext: true
+           lightninglogin.allowhelp: true
