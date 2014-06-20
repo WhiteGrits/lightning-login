@@ -68,15 +68,11 @@ public class Main extends JavaPlugin implements Listener {
             	                        } else {
             	                        	
             	                        }
-                	                    }
-                	                    
-        	                            
-        	                            
+                	                    }                	                    
+        	                           	                            
                 }
         	}, 18);
         	
-
-
         }
         
         
@@ -85,9 +81,7 @@ public class Main extends JavaPlugin implements Listener {
     		for (Player player: Bukkit.getServer().getOnlinePlayers()) {
                  if (player.hasPermission("lightninglogin.allowhelp")) {
                 	 if(cmd.getName().equalsIgnoreCase("lightninglogin")){
-                		 
-
-                		 
+                		                 		 
                 	 }
                 	 
                 	 player.sendMessage(ChatColor.BLUE  + "LightningLogin was created by WhiteGrits!");
@@ -106,3 +100,4 @@ public class Main extends JavaPlugin implements Listener {
     	
         
 }
+    	
