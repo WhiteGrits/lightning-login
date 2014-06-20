@@ -1,3 +1,5 @@
+//####WhiteGrits##
+
 package me.WhiteGrits.Lightninglogin;
 
 import java.util.logging.Logger;
@@ -55,7 +57,7 @@ public class Main extends JavaPlugin implements Listener {
                                 	    }
                                     
                                 }
-                        }, 18);
+                        }, 10);
         }
         
         @EventHandler
@@ -65,13 +67,14 @@ public class Main extends JavaPlugin implements Listener {
                 	                    for (Player player: Bukkit.getServer().getOnlinePlayers()) {
                 	                    if (player.hasPermission("lightninglogin.allowtext")) {
                 	                    	player.sendMessage(ChatColor.LIGHT_PURPLE  + "Lightning strikes as you login!");
-            	                        } else {
+            	                      //SOON TO BE A CONFIGURABLE MESSAGE!
+                	                    } else {
             	                        	
             	                        }
                 	                    }                	                    
         	                           	                            
                 }
-        	}, 18);
+        	}, 10);
         	
         }
         
@@ -98,6 +101,10 @@ public class Main extends JavaPlugin implements Listener {
     		
     	}
     	
+
+    	
         
 }
-    	
+
+//####WhiteGrits##
+
