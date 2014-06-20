@@ -4,6 +4,8 @@ import java.util.logging.Logger;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
+import org.bukkit.command.Command;
+import org.bukkit.command.CommandSender;
 import org.bukkit.entity.LightningStrike;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -19,6 +21,7 @@ public class Main extends JavaPlugin implements Listener {
 	public static Main plugin;
 	
 	    public Permission playerPermission = new Permission("lightninglogin.allow");
+	    public Permission playerPermission1 = new Permission("lightninglogin.allowtext");
 	 
 	    public void onDisable() {
 		        PluginDescriptionFile pdfFile = this.getDescription();
@@ -30,6 +33,7 @@ public class Main extends JavaPlugin implements Listener {
         		this.logger.info(pdfFile.getName() + " Version" + pdfFile.getVersion() + " Has Been Enabled!");
         		PluginManager pm = getServer().getPluginManager();
         		pm.addPermission(playerPermission);
+        		pm.addPermission(playerPermission1);
         }
         
        
@@ -38,13 +42,17 @@ public class Main extends JavaPlugin implements Listener {
                         Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable(){
                                 public void run(){
                                        
-            	                        Player player = pje.getPlayer();
-            	                        if (player.hasPermission("lightninglogin.allow")) ;
-            	                        	
-            	                        
+                                	    for (Player player: Bukkit.getServer().getOnlinePlayers()) {
+            	                        if (player.hasPermission("lightninglogin.allow")) {
+            	                                 	                        
                                         @SuppressWarnings("unused")
 										LightningStrike f  = (LightningStrike) pje.getPlayer().getWorld().spawn(pje.getPlayer().getLocation(), LightningStrike.class);
                                         
+            	                        } else {
+            	                        	
+            	                        }
+            	                        
+                                	    }
                                     
                                 }
                         }, 18);
@@ -54,11 +62,15 @@ public class Main extends JavaPlugin implements Listener {
         public void onPlayerJoin1 (final PlayerJoinEvent pj) {
         	Bukkit.getServer().getScheduler().scheduleSyncDelayedTask(this, new Runnable(){
                 public void run(){
-                	                    Player player = pj.getPlayer();
-                	                    if (player.hasPermission("lightninglogin.allow")) ;
-                	                    	
+                	                    for (Player player: Bukkit.getServer().getOnlinePlayers()) {
+                	                    if (player.hasPermission("lightninglogin.allowtext")) {
+                	                    	player.sendMessage(ChatColor.LIGHT_PURPLE  + "Lightning strikes as you login!");
+            	                        } else {
+            	                        	
+            	                        }
+                	                    }
                 	                    
-        	                            player.sendMessage(ChatColor.LIGHT_PURPLE  + "Lightning strikes as you login!");
+        	                            
         	                            
                 }
         	}, 18);
@@ -67,5 +79,30 @@ public class Main extends JavaPlugin implements Listener {
 
         }
         
+        
+    	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
+    		if(sender instanceof Player) {
+    		for (Player player: Bukkit.getServer().getOnlinePlayers()) {
+                 if (player.hasPermission("lightninglogin.allowhelp")) {
+                	 if(cmd.getName().equalsIgnoreCase("lightninglogin")){
+                		 
+
+                		 
+                	 }
+                	 
+                	 player.sendMessage(ChatColor.BLUE  + "LightningLogin was created by WhiteGrits!");
+                 } else {
+                	 
+                 
+                 	player.sendMessage(ChatColor.DARK_RED + "You do not have permission for LightingLogin");
+                 }
+    		}
+    		}
+    		
+    		
+    		return false;
+    		
+    	}
+    	
         
 }
